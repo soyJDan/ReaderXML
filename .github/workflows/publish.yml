@@ -1,3 +1,12 @@
+# Este flujo de trabajo usa acciones que no GitHub no certifica.
+# Estas las proporcionan entidades terceras y las gobiernan
+# condiciones de servicio, políticas de privacidad y documentación de soporte
+# en línea.
+
+# GitHub recomienda anclar acciones a un SHA de confirmación.
+# Para obtener una versión más reciente, debes actualizar el SHA.
+# También puedes hacer referencia a una etiqueta o rama, pero la acción puede cambiar sin ninguna advertencia.
+
 name: Publish package to GitHub Packages
 on:
   release:
@@ -20,6 +29,4 @@ jobs:
       - name: Publish package
         run: ./gradlew publish
         env:
-          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
